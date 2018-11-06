@@ -1,0 +1,10 @@
+services:
+  guess_num:
+    build: .
+    image: 10.10.83.201:5001/simplechal__guess_num:1.0
+    labels:
+      '64820': nc IP PORT
+    ports:
+    - 0.0.0.0::64820
+    restart: unless-stopped
+version: '3'

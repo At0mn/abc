@@ -1,0 +1,11 @@
+services:
+  level0:
+    build: .
+    command: /start.sh
+    image: 10.10.83.201:5001/simplechal__level0:1.0
+    labels:
+      '9999': nc IP PORT
+    ports:
+    - 0.0.0.0::9999
+    restart: unless-stopped
+version: '3'
