@@ -16,7 +16,7 @@ ida pro，gdb
 
  这是一道关于 io_file 非常简单的题
  
- ![](1.png)
+ ![](pic/1.png)
  
  这段程序会向位于bss段的变量s赋值，由上图我们可以发现，一个file指针也位于相差0
  x100个字节的bss段。我们可以通过s来覆盖stream的值，改成一个我们想要的值。
@@ -29,17 +29,17 @@ ida pro，gdb
  
  这样肯定是不行的，但是我们可以先调试一下，看看他会crash在哪里～
  
- ![](2.png)
+ ![](pic/2.png)
  
  可以程序crash在了 cmp的语句，原因是`fault address 0x0` 因为现在 寄存器rdx的值为0x6161616161616161，是一个无效的地址。结下来我们看一下 rdx的值是怎么来的。
  
- ![](3.png)
+ ![](pic/3.png)
  
  是[rbx+0x88]中的内容，此时 rbx的值 就是buf_addr。
  
  rbx+0x88其实就是 fp->lock 当lock==0的时候，就会不进行cmp操作。
  
- ![](4.png)
+ ![](pic/4.png)
  
  由此 我们可以将payload的进化成下面这样：
  
@@ -51,9 +51,9 @@ ida pro，gdb
  
  然后继续观察程序crash在了哪里～
  
- ![](5.png)
+ ![](pic/5.png)
  
- ![](6.png)
+ ![](pic/6.png)
  
  可见call操作的crash 此时rax的值是 0，在这里如果我们控制了rax的值 就可以进行我们想进行的操作，上图可以发现 rax就是[rbx+0xd8] rbx此时的值 就是buf_addr。 这样我们就构造了 下面的这个 payload。
 
