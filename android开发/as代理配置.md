@@ -21,13 +21,13 @@
    
     配置好as代理之后，会 copy as的代理到gradle，但是实际上是没用的。copy as代理之后 gradle配置文件会出现这样的几条代码：
     
-    ```
+    `
     systemProp.http.proxyHost=127.0.0.1
     systemProp.https.proxyPort=1086
     systemProp.https.proxyHost=127.0.0.1
     systemProp.http.proxyPort=1086
     
-    ``` 
+    `
     
     但这些对我来说依旧是没用的，我看了接下来的一个文章：
     
