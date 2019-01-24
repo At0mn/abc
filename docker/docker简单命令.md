@@ -21,6 +21,8 @@ $ docker image pull library/hello-world
 ```
 $ docker run -t -i ubuntu /bin/bash
 ```
+给容器命名：`--name=container name`
+
 
 官网的解释：
 
