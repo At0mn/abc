@@ -11,12 +11,12 @@
 * 延迟绑定
 * 静态链接
 
-3. 路由器漏洞复现环境搭建
+ 3. 路由器漏洞复现环境搭建
 
-4.赛题writeup
+ 4.赛题writeup
 
-5.pwn入门题
+ 5.pwn入门题
 
-6.论文搜集
+ 6.论文搜集
 
-7.android、docker
+ 7.android、docker
