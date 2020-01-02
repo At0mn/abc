@@ -11,7 +11,6 @@
 ```
 pip install pycurl
 pip install wfuzz
-
 ```
 并没有把pip升级到最新版本，如果把pip升级到最新版本是有问题的,升级前电脑的pip是这样的：
 
@@ -46,5 +45,8 @@ python -m pip uninstall pip
 结论就是不需要更新pip 直接下载wfuzz就可以正确安装了。
 
 
+参考链接：
+[知乎 关于系统文件夹](https://www.zhihu.com/question/21265424)
 
+[python环境下，PIP卸载、重装、升级](https://www.cnblogs.com/burz/p/9099281.html)
 
