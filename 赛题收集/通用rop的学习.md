@@ -116,13 +116,13 @@ raw_input()
 
 我们看一下内存情况：
 
-<img src="/Users/liqingyuan/Desktop/1.png" alt="1" style="zoom:50%;" />
+<img src="1.png" alt="1" style="zoom:50%;" />
 
 可以看到目标寄存器都变成我们要修改的值，然后要跳到0x400600来给 rdi、rsi、rdx赋值，然后再执行call执行，执行write函数，这样就将 write函数的got值打印出来了。打印write函数的之后，我们需要再跳到main函数中，再利用overflow。那main函数的地址应该写在哪里呢？我们继续往下执行看看：
 
 
 
-<img src="/Users/liqingyuan/Desktop/2.png" alt="2" style="zoom:50%;" />
+<img src="2.png" alt="2" style="zoom:50%;" />
 
 执行完call执行之后，会对rbx进行加1的操作，同时比较rbx和rbp的值，相同时zf=1，jne不跳转，继续执行。可以看到rsp所指向地址不断升高，所以接下来需要填充56个字节（都为0），然后又可以跳转到ret所填写的位置。所以payload1的完整写法为：
 
